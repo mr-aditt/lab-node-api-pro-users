@@ -2,9 +2,11 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const { nanoid } = require("nanoid");
+const cors = require('cors');
 
 const app = express();
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(cors());
 try {
     mongoose.connect("mongodb://localhost:27017/test");
 } catch (error) {
